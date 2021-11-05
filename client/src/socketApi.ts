@@ -1,6 +1,9 @@
 //socket serverimiz ile react'ı bağlıyoruz.
 import io, { Socket } from 'socket.io-client';
 
+//yeni bir tip üretmek istemedim, react-images-uploading modülünün ürettiği tipi kullandım.
+import { ImageListType } from "react-images-uploading";
+
 let socket: Socket;
 
 export const init = () => {
@@ -16,6 +19,10 @@ export const init = () => {
 
     socket.on("connect", () => {
         console.log("Sunucuya bağlantı başarıyla gerçekleşti.");
-
     });
+};
+
+//data göndereceğimiz fonksion
+export const send = (imageList: ImageListType) => {
+    socket.emit('newImage', imageList);
 };
