@@ -1,9 +1,6 @@
 const app = require('express')();
 const http = require('http').createServer(app);
 const io = require("socket.io")(http);
-const cors = require('cors');
-
-app.use(cors); //yapılacak olan http isteklerinde güvenlik problemleri oluşmaması için.
 
 app.get('/', (req, res) => {
     res.send("Merhaba!");
