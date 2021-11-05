@@ -13,6 +13,7 @@ const App = () => {
 
   useEffect(() => {
     init(); //component yerleşmişse servere girebiliriz.
+    //callback function yazma sebebimiz socket server'dan gönderilen default image datasını almak.
     subscribe((defaultImage: string) => {
       setDefaultImage(defaultImage);
     }); //aboneliğimizi başlattık.

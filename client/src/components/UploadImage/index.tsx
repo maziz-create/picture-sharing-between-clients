@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import styles from '../styles.module.css'
 
 //components
@@ -6,7 +6,15 @@ import SendImageButton from '../SendImageButton'
 
 import ImageUploading, { ImageListType } from "react-images-uploading";
 
-const UploadImage = () => {
+/*
+Socket servere ilk bağlandığımızda alacağımız default image'i App.tsx'den
+prop olarak alabilmek ve Typescript'in tip kısıtlamasına da takılmamak için bu Entity'i ürettik. 
+*/
+interface defaultImage {
+    path: string;
+}
+
+const UploadImage: React.FC<defaultImage> = (defaultImage) => {
     const [images, setImages] = useState([]);
     const maxNumber = 69;
 
@@ -49,6 +57,11 @@ const UploadImage = () => {
                         >
                             Bütün Resimleri Sil
                         </button>
+                        {
+                            !imageList[0]
+                                ? <div className="image-item"><img src={defaultImage.path} /></div>
+                                : <div></div>
+                        }
                         {imageList.map((image, index) => (
                             <div key={index} className="image-item">
                                 <img src={image.dataURL} alt="" width="100" />
