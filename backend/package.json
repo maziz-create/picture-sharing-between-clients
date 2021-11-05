@@ -1,0 +1,21 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "This repository is the codes to the interview question given to me by the Elçi Company.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "startdev": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "Mehmet Aziz Algüllü",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "socket.io": "^4.3.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.14"
+  }
+}
