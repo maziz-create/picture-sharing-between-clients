@@ -1,7 +1,7 @@
 //socket serverimiz ile react'ı bağlıyoruz.
-import io from 'socket.io-client';
+import io, { Socket } from 'socket.io-client';
 
-let socket;
+let socket: Socket;
 
 export const init = () => {
     console.log("Sunucuya bağlanılıyor...");
