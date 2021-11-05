@@ -1,0 +1,23 @@
+.buttonType1 {
+    background-color: aquamarine;
+}
+  
+.buttonType2 {
+    background-color: chartreuse;
+}
+
+.buttonType3 {
+    background-color: crimson;
+}
+  
+.buttonType1:hover {
+    background-color: rgb(91, 247, 195);
+}  
+  
+.buttonType2:hover {
+    background-color: rgb(122, 231, 13);
+}
+
+.buttonType3:hover {
+    background-color: rgb(207, 27, 63);
+}
