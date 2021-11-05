@@ -18,9 +18,9 @@ io.on('connection', (socket) => {
     socket.emit('receive', defaultImage);
 
     //newImage kanalına bağlantı yapılıyor.
-    socket.on('newImage', (newImage) => {
+    socket.on('newImage', (newImageArray) => {
         //broadcast farkı: bağlı olan kendi hariç diğer clientlara gönderilmesi
-        io.broadcast.emit('receive', newImage);
+        io.broadcast.emit('receive', newImageArray);
     });
 
     socket.on("disconnect", () => {
