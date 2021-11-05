@@ -1,6 +1,9 @@
 import { useState } from 'react'
 import styles from '../styles.module.css'
 
+//components
+import SendImageButton from '../SendImageButton'
+
 import ImageUploading, { ImageListType } from "react-images-uploading";
 
 const UploadImage = () => {
@@ -65,6 +68,7 @@ const UploadImage = () => {
                                 </div>
                             </div>
                         ))}
+                        <SendImageButton />
                     </div>
                 )}
             </ImageUploading>
