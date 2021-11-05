@@ -26,3 +26,11 @@ export const init = () => {
 export const send = (imageList: ImageListType) => {
     socket.emit('newImage', imageList);
 };
+
+//ilk bağlanan kişiye default image göstermeyi amaçlıyoruz.
+export const subscribe = (cb: Function) => {
+    socket.on('receive', (defaultImage) => {
+        console.log(defaultImage);
+        cb(defaultImage);
+    });
+};
