@@ -12,12 +12,15 @@ io.on('connection', (socket) => {
     console.log("Bir kullanıcı bağlandı!");
 
     //yeni bağlanan her kullanıcı default img görecek.
-    socket.emit('receive', defaultImage);
+    socket.emit('default', defaultImage);
 
     //newImage kanalına bağlantı yapılıyor.
     socket.on('newImage', (newImageArray) => {
         //broadcast farkı: bağlı olan kendi hariç diğer clientlara gönderilmesi
-        io.broadcast.emit('receive', newImageArray);
+        if (newImageArray) {
+            console.log("sockete gönderilen newImageArray emit ediliyor receive kanalına");
+            io.emit('receive', newImageArray);
+        };
     });
 
     socket.on("disconnect", () => {
