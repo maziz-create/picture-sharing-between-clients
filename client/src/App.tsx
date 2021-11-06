@@ -16,7 +16,7 @@ const App = () => {
     //callback function yazma sebebimiz socket server'dan gönderilen default image datasını almak.
     subscribe((defaultImage: string) => {
       setDefaultImage(defaultImage);
-    }); //aboneliğimizi başlattık.
+    });
   }, [])
 
   return (
