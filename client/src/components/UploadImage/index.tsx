@@ -10,11 +10,11 @@ import ImageUploading, { ImageListType } from "react-images-uploading";
 Socket servere ilk bağlandığımızda alacağımız default image'i App.tsx'den
 prop olarak alabilmek ve Typescript'in tip kısıtlamasına da takılmamak için bu Entity'i ürettik. 
 */
-interface defaultImage {
+interface DefaultImage {
     path: string;
 }
 
-const UploadImage: React.FC<defaultImage> = (defaultImage) => {
+const UploadImage: React.FC<DefaultImage> = (defaultImage) => {
     const [images, setImages] = useState([]);
     const maxNumber = 69;
 
@@ -59,7 +59,7 @@ const UploadImage: React.FC<defaultImage> = (defaultImage) => {
                         </button>
                         {
                             !imageList[0]
-                                ? <div className="image-item"><img src={defaultImage.path} /></div>
+                                ? <div className="image-item"><img src={defaultImage.path} alt="default" /></div>
                                 : <div></div>
                         }
                         {imageList.map((image, index) => (
@@ -81,7 +81,7 @@ const UploadImage: React.FC<defaultImage> = (defaultImage) => {
                                 </div>
                             </div>
                         ))}
-                        <SendImageButton />
+                        <SendImageButton images={images} />
                     </div>
                 )}
             </ImageUploading>
