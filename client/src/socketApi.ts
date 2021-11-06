@@ -5,6 +5,7 @@ import io, { Socket } from 'socket.io-client';
 import { ImageListType } from "react-images-uploading";
 
 let socket: Socket;
+let initializedImageList: ImageListType = [];
 
 export const init = () => {
     console.log("Sunucuya bağlanılıyor...");
@@ -24,13 +25,16 @@ export const init = () => {
 
 //data göndereceğimiz fonksion
 export const send = (imageList: ImageListType) => {
-    socket.emit('newImage', imageList);
+    initializedImageList = imageList;
+
+    if (initializedImageList && initializedImageList[0]) {
+        socket.emit('newImage', initializedImageList)
+    };
 };
 
 //ilk bağlanan kişiye default image göstermeyi amaçlıyoruz.
 export const subscribe = (cb: Function) => {
-    socket.on('receive', (defaultImage) => {
-        console.log(defaultImage);
+    socket.on('default', (defaultImage) => {
         cb(defaultImage);
     });
 };
