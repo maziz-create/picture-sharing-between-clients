@@ -38,3 +38,12 @@ export const subscribe = (cb: Function) => {
         cb(defaultImage);
     });
 };
+
+//diğer client'ın gönderdiği, receive kanalından broadcast emit edilen image array'ı isteyen componente döndürüyoruz.
+export const receiveImage = (cb: Function) => {
+    if (initializedImageList && initializedImageList[0]) {
+        socket.on('receive', (imageList: ImageListType) => {
+            cb(imageList);
+        });
+    }
+};
