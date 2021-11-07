@@ -48,7 +48,8 @@ const ReceivedImage: React.FC<defaultImage> = (defaultImage) => {
                         <div key={index} className="image-item">
                             <img src={image.dataURL} alt="" width="100" />
                         </div>
-                    ))}
+                    ))
+                }
             </div>
         </div>
     )
