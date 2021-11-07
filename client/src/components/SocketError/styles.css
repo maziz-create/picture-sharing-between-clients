@@ -1,0 +1,13 @@
+.socket-error {
+    background-color: rgb(130, 182, 217);
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    text-align: center;
+}
+
+.socket-error p {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+}
