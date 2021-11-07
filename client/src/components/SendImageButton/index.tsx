@@ -14,7 +14,7 @@ interface Images {
 }
 
 const SendImageButton: React.FC<Images> = (images) => {
-    const [displayError, setDisplayError] = useState({ display: 'none' })
+    const [styleError, setStyleError] = useState({ display: 'none' })
 
     return (
         <div>
@@ -25,14 +25,14 @@ const SendImageButton: React.FC<Images> = (images) => {
                     */
                     images.images[0]
                         ? send(images.images)
-                        : setDisplayError({ display: 'block' })
+                        : setStyleError({ display: 'block' })
                 }}
                 className={`send-button ${buttons.type3}`}
             >
                 Gönder
             </button>
             <p
-                style={displayError}
+                style={styleError}
                 className="error"
             >
                 *Henüz bir resim eklemediniz.
