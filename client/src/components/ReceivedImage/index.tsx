@@ -30,7 +30,12 @@ const ReceivedImage: React.FC<defaultImage> = (defaultImage) => {
         <div>
             <h2>Alınacak Resimler</h2>
             <div className="received-images">
-                <button className={styles.buttonType2}>Bütün Resimleri Sil</button>
+                <button
+                    className={styles.buttonType2}
+                    onClick={() => setImageList([])}
+                >
+                    Bütün Resimleri Sil
+                </button>
                 {
                     !imageList[0]
                         ? <div className="image-item"><img src={defaultImage.path} alt="default" /></div>
