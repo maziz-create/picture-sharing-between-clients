@@ -37,3 +37,28 @@ export const receiveImage = (cb: Function) => {
         cb(imageList);
     });
 };
+
+//yeniden bağlanma durumlarında SocketError componentine veri iletiyoruz.
+export const sendSocketError = (cb: Function) => {
+    socket.on('error', () => {
+        cb({
+            errorMessage: 'Bağlantı Başarısız!',
+            styleSocketError: { display: 'block' }
+        });
+    })
+
+    socket.on('reconnect_failed', () => {
+        cb({
+            errorMessage: 'Bağlantı başarısız!',
+            styleSocketError: { display: 'block' }
+        });
+    });
+
+    //yeniden bağlanma sağlandığı an tetiklenir.
+    socket.on('reconnect', () => {
+        cb({
+            errorMessage: '',
+            styleSocketError: { display: 'none' }
+        });
+    });
+}
