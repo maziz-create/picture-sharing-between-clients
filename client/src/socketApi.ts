@@ -4,7 +4,11 @@ import io, { Socket } from 'socket.io-client';
 //yeni bir tip üretmek istemedim, react-images-uploading modülünün ürettiği tipi kullandım.
 import { ImageListType } from "react-images-uploading";
 
-let socket: Socket = io("http://localhost:8081", { transports: ["websocket"] })
+let socket: Socket = io("http://localhost:8081", {
+    transports: ["websocket"],
+    reconnectionDelay: 10000, //10 saniyede bir bağlanmayı dener.
+})
+
 let initializedImageList: ImageListType = [];
 
 export const init = () => {
