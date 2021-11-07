@@ -1,3 +1,5 @@
+import { useState } from 'react'
+
 import './styles.css'
 import styles from '../styles.module.css'
 
@@ -12,21 +14,29 @@ interface Images {
 }
 
 const SendImageButton: React.FC<Images> = (images) => {
+    const [displayError, setDisplayError] = useState({ display: 'none' })
+
     return (
         <div>
             <button
                 onClick={() => {
                     /*
                     images alanını burada ben eklediğim için images.images olarak gönderiyorum.
-                    gönderilen data ImageListType türünde olduğu için gönderilen data
-                    aldığım prop'un images.images kısmına eklendi.
                     */
-                    send(images.images);
+                    images.images[0]
+                        ? send(images.images)
+                        : setDisplayError({ display: 'block' })
                 }}
                 className={`send-button ${styles.buttonType3}`}
             >
                 Gönder
             </button>
+            <p
+                style={displayError}
+                className="error"
+            >
+                *Henüz bir resim eklemediniz.
+            </p>
         </div>
     )
 }

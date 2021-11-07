@@ -1,3 +1,11 @@
 .send-button {
     width: 98%;
 }
+
+.error {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin: 0;
+    text-align: left;
+    font-size: 15px;
+    padding-left: 3px;
+}
