@@ -11,16 +11,12 @@ let defaultImage = "https://www.ekoparkotomasyon.com/wp-content/public_html/cart
 io.on('connection', (socket) => {
     console.log("Bir kullanıcı bağlandı!");
 
-    //yeni bağlanan her kullanıcı default img görecek.
+    //yeni bağlanan her kullanıcı gönderilecek ve alınacak resimler kısmında default image görecek.
     socket.emit('default', defaultImage);
 
-    //newImage kanalına bağlantı yapılıyor.
     socket.on('newImage', (newImageArray) => {
         //broadcast farkı: bağlı olan kendi hariç diğer clientlara gönderilmesi
-        if (newImageArray) {
-            console.log("sockete gönderilen newImageArray emit ediliyor receive kanalına");
-            io.emit('receive', newImageArray);
-        };
+        socket.broadcast.emit('receive', newImageArray);
     });
 
     socket.on("disconnect", () => {
