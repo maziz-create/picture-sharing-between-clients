@@ -7,6 +7,7 @@ import { init, subscribe } from './socketApi'
 //components
 import UploadImage from './components/UploadImage'
 import ReceivedImage from './components/ReceivedImage'
+import SocketError from './components/SocketError'
 
 const App = () => {
   const [defaultImage, setDefaultImage] = useState('');
@@ -21,6 +22,7 @@ const App = () => {
 
   return (
     <div className="App">
+      <SocketError />
       <UploadImage path={defaultImage} />
       <ReceivedImage path={defaultImage} />
     </div>
