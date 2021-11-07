@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 
 import './styles.css'
-import styles from '../styles.module.css'
+import buttons from '../buttons.module.css'
 
 //socket methods
 import { receiveImage } from '../../socketApi'
@@ -31,7 +31,7 @@ const ReceivedImage: React.FC<defaultImage> = (defaultImage) => {
             <h2>Alınacak Resimler</h2>
             <div className="received-images">
                 <button
-                    className={styles.buttonType2}
+                    className={buttons.type2}
                     onClick={() => setImageList([])}
                 >
                     Bütün Resimleri Sil

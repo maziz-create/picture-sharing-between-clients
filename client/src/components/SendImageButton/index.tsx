@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
 import './styles.css'
-import styles from '../styles.module.css'
+import buttons from '../buttons.module.css'
 
 //socket methods
 import { send } from '../../socketApi'
@@ -27,7 +27,7 @@ const SendImageButton: React.FC<Images> = (images) => {
                         ? send(images.images)
                         : setDisplayError({ display: 'block' })
                 }}
-                className={`send-button ${styles.buttonType3}`}
+                className={`send-button ${buttons.type3}`}
             >
                 Gönder
             </button>

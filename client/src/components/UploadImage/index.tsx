@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import styles from '../styles.module.css'
+import buttons from '../buttons.module.css'
 
 //components
 import SendImageButton from '../SendImageButton'
@@ -44,7 +44,7 @@ const UploadImage: React.FC<DefaultImage> = (defaultImage) => {
                 }) => (
                     <div className="upload__image-wrapper">
                         <button
-                            className={styles.buttonType1}
+                            className={buttons.type1}
                             style={isDragging ? { backgroundColor: "black", color: "#fff" } : undefined}
                             onClick={onImageUpload}
                             {...dragProps}
@@ -52,7 +52,7 @@ const UploadImage: React.FC<DefaultImage> = (defaultImage) => {
                             Tıkla veya Sürükle
                         </button>
                         <button
-                            className={styles.buttonType2}
+                            className={buttons.type2}
                             onClick={onImageRemoveAll}
                         >
                             Bütün Resimleri Sil
@@ -67,13 +67,13 @@ const UploadImage: React.FC<DefaultImage> = (defaultImage) => {
                                 <img src={image.dataURL} alt="" width="100" />
                                 <div className="image-item__btn-wrapper">
                                     <button
-                                        className={styles.buttonType3}
+                                        className={buttons.type3}
                                         onClick={() => onImageUpdate(index)}
                                     >
                                         Güncelle
                                     </button>
                                     <button
-                                        className={styles.buttonType3}
+                                        className={buttons.type3}
                                         onClick={() => onImageRemove(index)}
                                     >
                                         Sil
